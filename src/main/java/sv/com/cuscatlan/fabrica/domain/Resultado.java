@@ -1,13 +1,16 @@
 package sv.com.cuscatlan.fabrica.domain;
 
-public class Resultado
+
+import lombok.Builder;
+import lombok.Data;
+import lombok.Getter;
+
+
+@Builder
+@Data public class Resultado
 {
-	public Resultado(boolean success, String mensaje, String tiempo) {
-		this.success = success;
-		this.mensaje = mensaje;
-		this.tiempo = tiempo;
-	}
-	public boolean success;
-	public String mensaje;
-	public String tiempo;
+	private  final boolean success;
+	private  final String mensaje;
+	private  final String tiempo;
+	private  final String valor;
 }

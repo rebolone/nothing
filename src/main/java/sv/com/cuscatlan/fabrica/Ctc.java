@@ -1,8 +1,6 @@
 package sv.com.cuscatlan.fabrica;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-
+import sv.com.cuscatlan.fabrica.domain.Uri;
 import sv.com.cuscatlan.fabrica.service.NetworkService;
 import sv.com.cuscatlan.fabrica.view.ConsoleView;
 
@@ -17,11 +15,13 @@ public class Ctc
 	
     public static void main( String[] args )
     {
+    	Uri uri = Uri.builder().uri("www.cnn.com").build();
     	ConsoleView.showHeaders(System.out);
     	System.out.println("Iniciando Verificación de Conectividad....");
     	System.out.println("");
-    	var ip = NetworkService.GetIPAddressFromDns("www.cnn.com");
-    	System.out.println(ip.mensaje);
+    	var ip = NetworkService.getIPAddressFromDns(uri.getHost());
+    	//System.out.println(ip.ipAddress);
+    	/*NetworkService.ping(ip.mensaje);*/
 
         
     }

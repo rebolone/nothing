@@ -1,15 +1,16 @@
 package sv.com.cuscatlan.fabrica.domain;
 
-public class Uri {
-	public Uri(String uri) {
-		this.uri = uri;
-	}
-	public String uri;
-	public String url;
-	public String host;
-	public int port;
-	public String ipAddress;
-	public Protocols protocolo;
+import lombok.Builder;
+import lombok.Data;
+
+@Builder
+@Data public class Uri {
+	private final String uri;
+	private String url;
+	private String host;
+	private int port;
+	private String ipAddress;
+	private Protocols protocolo;
 	
 	
 }
