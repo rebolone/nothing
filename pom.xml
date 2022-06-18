@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>sv.com.cusca</groupId>
-  <artifactId>testclient</artifactId>
+  <artifactId>ConnectionDiagnostic</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
   <name>testclient</name>

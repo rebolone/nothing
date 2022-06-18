@@ -19,22 +19,21 @@ public class NetworkService {
 
 
 	public static Resultado getIPAddressFromDns(String hostname) {
-		InetAddress address;
 		try {
-			address = InetAddress.getByName(hostname);
-	    	return Resultado.builder().build();
-	    		.(true, String.format("La IP asociada al Host %1$s es la %2$s", hostname, address.getHostAddress()),"1 min");
+			InetAddress address = InetAddress.getByName(hostname);
+	    	return new Resultado(true, String.format("La IP asociada al Host %1$s es la %2$s", hostname, address.getHostAddress()),"",address.getHostAddress());
 		} catch (UnknownHostException e) {
-			return new Resultado(false, "El Host procesado es desconocido....","1 min");
+			return new Resultado(false, "El Host procesado es desconocido....","1 min","");
 		}  catch (Exception e) {
-			return new Resultado(false, "Se genero un error y no fue posible identificar la IP del Host","1 min");
+			return new Resultado(false, "Se genero un error y no fue posible identificar la IP del Host","1 min","Error");
 		}
-		return uri;
 	}
 	
 	public static void ping(String ip) {
 	    try {
-	        Process p = Runtime.getRuntime().exec(String.format("ping %1$s",ip));
+	    	String command = String.format("ping %1$s",ip);
+	    	System.out.println(command);
+	        Process p = Runtime.getRuntime().exec(command);
 	        BufferedReader inputStream = new BufferedReader(
 	                new InputStreamReader(p.getInputStream()));
 
